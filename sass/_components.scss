@@ -14,6 +14,12 @@
     justify-content: center;
     align-items: center;
 
+    @media only screen and (max-width: $bp-smallest) {
+        order: 1;
+        flex: 0 0 100%;
+        background-color: var(--color-grey-light-2)
+    }
+
     &__input {
         font-family: inherit; //from body
         font-size: inherit; //from header(1.4rem)
@@ -127,11 +133,31 @@
 
     margin-top: 3.5rem;
 
+    @media only screen and (max-width: $bp-medium) {
+        display: flex;
+        margin: 0;
+    }
+
+    
+
     &__item {
         position: relative;
 
         &:not(:last-child) {
             margin-bottom: .5rem;
+
+            @media only screen and (max-width: $bp-medium) {
+                margin: 0; 
+            }
+        }
+
+        @media only screen and (max-width: $bp-medium) {
+            flex: 1;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            display: flex;
+            flex-direction: column;
         }
     }
 
@@ -177,6 +203,16 @@
 
         display: flex;
         align-items: center;
+
+        @media only screen and (max-width: $bp-medium) {
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            flex-direction: column;  
+            padding: 1.5rem .5rem;         
+        }
     }
 
     &__icon {
@@ -184,6 +220,12 @@
         height: 1.75rem;
         margin-right: 2rem;
         fill: currentColor; // Inherits color of the parent or itself
+
+        @media only screen and (max-width: $bp-small) {
+            margin: 0 0 .7rem 0;
+            width: 1.5rem;
+            height: 1.5rem;          
+        }
     }
 }
 
@@ -195,6 +237,10 @@
     text-align: center;
     color: var(--color-grey-light-4);
     padding: 2.5rem;
+
+    @media only screen and (max-width: $bp-medium) {
+        display: none;
+    }
 }
 
 /////////////////////////////////////////////
@@ -227,6 +273,11 @@
         text-transform: uppercase;
         letter-spacing: 1px;
         padding: 1.5rem 3rem;
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 1.8rem;
+            padding: 1.25rem 2rem;           
+        }
     }
 
     &__stars {
@@ -262,17 +313,29 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
+        @media only screen and (max-width: $bp-small) {
+            padding: 0 1.5rem;        
+        }
     }
 
     &__rating-average {
         font-size: 2.25rem;
         font-weight: 300;
         margin-bottom: -3px;
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 1.8rem;        
+        }
     }
 
     &__rating-count {
         font-size: .9rem;
         text-transform: uppercase;
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: .5rem;        
+        }
 
     }
 }
@@ -363,15 +426,18 @@
         margin-right: .7rem;
 
         //OLDER BROWSERS
-        // background-image: url(../img/chevron-thin-right.svg);
-        // background-size: cover;
+        background-image: url(../img/chevron-thin-right.svg);
+        background-size: cover;
 
         //MODERN BROWSERS
-        background-color: var(--color-primary);
-        -webkit-mask-image: url(../img/chevron-thin-right.svg);
-        -webkit-mask-size: cover;
-        mask-image: url(../img/chevron-thin-right.svg);
-        mask-size: cover;
+        @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+            background-color: var(--color-primary);
+            -webkit-mask-image: url(../img/chevron-thin-right.svg);
+            -webkit-mask-size: cover;
+            mask-image: url(../img/chevron-thin-right.svg);
+            mask-size: cover;
+            background-image: none;
+        }
 
     }
 
@@ -392,7 +458,9 @@
         margin-right: auto;
     }
 
-    &__friends {}
+    &__friends {
+        display: flex;
+    }
 
     &__photo {
         height: 4rem;
@@ -402,7 +470,7 @@
         box-sizing: content-box;
 
         &:not(:last-of-type) {
-            margin-right: -1.5rem;
+            margin-right: -2rem;
         }
     }
 }
@@ -417,6 +485,11 @@
     padding: 3.5rem;
     position: relative;
     overflow: hidden;
+
+    @media only screen and (max-width: $bp-medium) {
+        padding: 2rem;
+        margin-bottom: 3rem;
+    }
 
 
     &__text {
@@ -478,6 +551,10 @@
 .cta {
     text-align: center;
     padding: 3.5rem 0;
+
+    @media only screen and (max-width: $bp-medium) {
+        padding: 2.5rem 0;
+    }
 
     &__book-now {
         font-size: 2rem;
