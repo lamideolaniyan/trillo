@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/Cyber-Mat/trillo/issues"
   },
-  "homepage": "https://github.com/Cyber-Mat/tillo#readme",
+  "homepage": "https://github.com/Cyber-Mat/trillo#readme",
   "devDependencies": {
     "autoprefixer": "^9.8.4",
     "concat": "^1.0.3",
